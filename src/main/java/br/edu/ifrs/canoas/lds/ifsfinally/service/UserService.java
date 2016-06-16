@@ -3,9 +3,9 @@
  * @date: 
  * @description: 
  */
-package br.edu.ifrs.canoas.lds.starter.service;
+package br.edu.ifrs.canoas.lds.ifsfinally.service;
 
-import br.edu.ifrs.canoas.lds.starter.domain.User;
+import br.edu.ifrs.canoas.lds.ifsfinally.domain.User;
 
 public interface UserService {
 

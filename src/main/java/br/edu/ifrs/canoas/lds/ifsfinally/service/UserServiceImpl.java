@@ -1,7 +1,7 @@
 /*
  * 
  */
-package br.edu.ifrs.canoas.lds.starter.service;
+package br.edu.ifrs.canoas.lds.ifsfinally.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,8 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.edu.ifrs.canoas.lds.starter.domain.User;
-import br.edu.ifrs.canoas.lds.starter.repository.UserRepository;
+import br.edu.ifrs.canoas.lds.ifsfinally.domain.User;
+import br.edu.ifrs.canoas.lds.ifsfinally.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {

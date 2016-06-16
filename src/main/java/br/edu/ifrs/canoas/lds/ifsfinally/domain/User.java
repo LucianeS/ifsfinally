@@ -1,7 +1,7 @@
 /*
  * 
  */
-package br.edu.ifrs.canoas.lds.starter.domain;
+package br.edu.ifrs.canoas.lds.ifsfinally.domain;
 
 import java.util.HashSet;
 import java.util.List;

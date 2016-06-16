@@ -3,7 +3,7 @@
  * @date: 
  * @description: 
  */
-package br.edu.ifrs.canoas.lds.starter.service;
+package br.edu.ifrs.canoas.lds.ifsfinally.service;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import br.edu.ifrs.canoas.lds.starter.domain.User;
-import br.edu.ifrs.canoas.lds.starter.repository.UserRepository;
+import br.edu.ifrs.canoas.lds.ifsfinally.domain.User;
+import br.edu.ifrs.canoas.lds.ifsfinally.repository.UserRepository;
 
 // TODO: Auto-generated Javadoc
 @Service

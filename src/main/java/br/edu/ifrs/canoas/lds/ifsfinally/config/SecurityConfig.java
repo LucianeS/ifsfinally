@@ -1,7 +1,7 @@
 /*
  * 
  */
-package br.edu.ifrs.canoas.lds.starter.config;
+package br.edu.ifrs.canoas.lds.ifsfinally.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

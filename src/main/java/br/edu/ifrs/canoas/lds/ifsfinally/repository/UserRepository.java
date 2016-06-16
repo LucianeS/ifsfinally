@@ -3,13 +3,13 @@
  * @date: 
  * @description: 
  */
-package br.edu.ifrs.canoas.lds.starter.repository;
+package br.edu.ifrs.canoas.lds.ifsfinally.repository;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import br.edu.ifrs.canoas.lds.starter.domain.User;
+import br.edu.ifrs.canoas.lds.ifsfinally.domain.User;
 
 // TODO: Auto-generated Javadoc
 public interface UserRepository extends CrudRepository<User, Long> {

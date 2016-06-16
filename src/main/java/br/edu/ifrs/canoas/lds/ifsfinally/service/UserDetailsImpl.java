@@ -3,7 +3,7 @@
  * @date: 
  * @description: 
  */
-package br.edu.ifrs.canoas.lds.starter.service;
+package br.edu.ifrs.canoas.lds.ifsfinally.service;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -13,8 +13,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.edu.ifrs.canoas.lds.starter.domain.Role;
-import br.edu.ifrs.canoas.lds.starter.domain.User;
+import br.edu.ifrs.canoas.lds.ifsfinally.domain.Role;
+import br.edu.ifrs.canoas.lds.ifsfinally.domain.User;
 
 public class UserDetailsImpl implements UserDetails {
 
