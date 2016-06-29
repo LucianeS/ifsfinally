@@ -26,6 +26,10 @@ public class DoacaoService {
 	
 	public Doacao save(Doacao doacao) {
 		return doacaoRepository.save(doacao);
-	}	
+	}
+	
+	public Object listIsDisponivel() {
+		return doacaoRepository.findByIsDisponivel(true);
+	}
 
 }
