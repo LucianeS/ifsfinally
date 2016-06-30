@@ -4,16 +4,16 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
-<title th:text="#{item.header}" />
+<title th:text="#{error.header}"></title>
 </head>
 
 <body>
-	<div layout:fragment="content">
+	<div> <!-- layout:fragment="content" -->
 
 		<div class="side-body">
 			<!-- PAGE HEADER -->
 			<div class="page-title">
-				<span class="title" th:text="#{error.text.title}" />
+				<span class="title" th:text="#{error.text.title}"></span>
 				<div class="description" th:text="#{error.title.description}"></div>
 			</div>
 

@@ -34,7 +34,7 @@ public class Doacao {
 	private String description;
 	
 	@Column(columnDefinition = "boolean default true")
-	private Boolean isDisponivel;
+	private boolean disponivel;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -78,12 +78,12 @@ public class Doacao {
 		this.description = description;
 	}
 
-	public Boolean getIsDisponivel() {
-		return isDisponivel;
+	public boolean isDisponivel() {
+		return disponivel;
 	}
 
-	public void setIsDisponivel(Boolean isDisponivel) {
-		this.isDisponivel = isDisponivel;
+	public void setDisponivel(Boolean isDisponivel) {
+		this.disponivel = isDisponivel;
 	}
 
 	public User getResponsible() {

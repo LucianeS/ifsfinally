@@ -55,8 +55,8 @@ public class DoacaoController {
 	public String save(@Valid Doacao doacao, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
 			Locale locale) {
 		if (!bindingResult.hasErrors()) {
-			if(!doacao.getIsDisponivel())
-				doacao.setIsDisponivel(true);
+			if(!doacao.isDisponivel())
+				doacao.setDisponivel(true);
 			
 			doacao.setPostedOn(new Date());
 			doacao.setResponsible(userProfileService.getPrincipal().getUser());

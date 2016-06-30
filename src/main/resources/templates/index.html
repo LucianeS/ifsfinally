@@ -92,7 +92,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview" th:each="doacao:${doacoes}" th:if="${doacao.isDisponivel}">
+                <div class="post-preview" th:each="doacao:${doacoes}" th:if="${doacao.disponivel}">
                     <a th:href="post">
                         <h2 class="post-title"  th:text="|${doacao.title}|"></h2>                        
                         <p class="post-meta"> Contato:  <span th:text="|${doacao.responsible.fullName}|"/> -  

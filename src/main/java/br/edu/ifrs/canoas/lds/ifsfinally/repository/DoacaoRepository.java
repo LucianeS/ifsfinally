@@ -8,6 +8,6 @@ import br.edu.ifrs.canoas.lds.ifsfinally.domain.Doacao;
 
 public interface DoacaoRepository extends CrudRepository<Doacao, Long>{
 	
-	List<Doacao> findByIsDisponivel(boolean IsPublic);
+	List<Doacao> findByDisponivel(boolean IsPublic);
 
 }

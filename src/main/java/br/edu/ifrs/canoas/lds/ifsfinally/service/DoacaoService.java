@@ -29,7 +29,7 @@ public class DoacaoService {
 	}
 	
 	public Object listIsDisponivel() {
-		return doacaoRepository.findByIsDisponivel(true);
+		return doacaoRepository.findByDisponivel(true);
 	}
 
 }
