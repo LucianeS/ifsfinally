@@ -54,7 +54,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a th:href="index">Home</a>
+                        <a href="/doacao/create">Cadastro</a>
                     </li>
                     <li>
                         <a th:href="about">About</a>
@@ -95,7 +95,7 @@
                 <div class="post-preview" th:each="doacao:${doacoes}" th:if="${doacao.isDisponivel}">
                     <a th:href="post">
                         <h2 class="post-title"  th:text="|${doacao.title}|"></h2>                        
-                        <p class="post-meta"> Contato com:  <span th:text="|${doacao.responsible.fullName}|"/> -  
+                        <p class="post-meta"> Contato:  <span th:text="|${doacao.responsible.fullName}|"/> -  
                         Email: <span class="post-subtitle" th:text="|${doacao.contactEmail}|"/>
                         <br/>Data da Postagem: <span th:text="${#dates.format(doacao.postedOn, 'dd-MMM-yyyy')}"></span></p>
                     </a>                   

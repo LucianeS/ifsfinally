@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<title>Cadastro</title><!--  th:text="#{cadastro.title}" -->
+
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Custom CSS -->
+<link href="css/clean-blog.min.css" rel="stylesheet" />
+
+<!-- Custom Fonts -->
+<link
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic'
+	rel='stylesheet' type='text/css' />
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	rel='stylesheet' type='text/css' />
+
+</head>
+
+<body>
+
+
+
+	<!-- Page Header -->
+	<!-- Set your background image for this header on the line below. -->
+	<header class="intro-header">
+
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a th:href="@{/}">Home</a></li>
+				<li><a th:href="about">About</a></li>
+				<li><a th:href="post">Sample Post</a></li>
+				<li><a th:href="contact">Contact</a></li>
+			</ul>
+		</div>
+	</header>
+
+	<!-- Main Content -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div th:if="${message}" class="alert alert-success">
+					<p th:text="${message}" />
+				</div>
+
+				<p>Cadastro de Doações</p><!-- th:text="#{cadastro.title2}" -->
+				
+				<div th:if="${message}" class="alert alert-success">
+					<p th:text="${message}" />
+				</div>
+
+				<form th:object="${doacao}" th:action="@{/doacao/save}"
+					method="post" id="doacaoForm">
+					<div class="col-xs-12 col-md-8">
+						<div class="form-group"
+							th:classappend="${#fields.hasErrors('title')}? 'has-error'">
+							<!-- th:text="#{doacao.title}"  -->
+							<label>Título: </label><input type="text" class="form-control"
+								id="doacaoTitle" th:field="*{title}" placeholder="Title"
+								th:readonly="${readonly}" required="true" /> <span
+								th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+								th:class="help-block"></span>
+						</div>
+						<br/>
+						<div class="form-group"
+							th:classappend="${#fields.hasErrors('description')}? 'has-error'">
+							<!-- th:text="#{doacao.title}"  -->
+							<label>Description: </label>
+								<textarea rows="5" class="form-control" placeholder="Descrição" id="doacaoDescription" th:readonly="${readonly}" required="true"></textarea>
+								<span
+								th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+								th:class="help-block"></span>
+						</div>
+						<br/>
+						<div class="form-group"
+							th:classappend="${#fields.hasErrors('contactEmail')}? 'has-error'">
+							<label for="contactEmail">Email de contato:</label> <input
+								type="text" class="form-control" id="contactEmail"
+								th:field="*{contactEmail}" placeholder="E-mail"
+								th:readonly="${readonly}" /> <span
+								th:if="${#fields.hasErrors('contactEmail')}"
+								th:errors="*{contactEmail}" th:class="help-block" />
+						</div>
+						<br/>
+						<div class="form-group"
+							th:classappend="${#fields.hasErrors('location')}? 'has-error'">
+							<label for="contactEmail">Cidade/Estado:</label> <input
+								type="text" class="form-control" id="location"
+								th:field="*{location}" placeholder="Localização: Cidade/Estado"
+								th:readonly="${readonly}" /> <span
+								th:if="${#fields.hasErrors('location')}"
+								th:errors="*{location}" th:class="help-block" />
+						</div>
+
+						<button type="submit" class="btn btn-success" th:if="${!readonly}"
+							id="btSubmitForm"
+							onclick="document.getElementById('doacaoForm').submit(); return false;"
+							th:text="#{crud.action.save}"></button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<hr/>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+					<p class="copyright text-muted">Copyright &copy; Your Website 2014</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

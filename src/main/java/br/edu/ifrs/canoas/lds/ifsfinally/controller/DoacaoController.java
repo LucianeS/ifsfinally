@@ -50,6 +50,7 @@ public class DoacaoController {
 		return "/doacao/form";
 	}
 	
+	@Secured("ROLE_USER")
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Doacao doacao, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
 			Locale locale) {
@@ -61,8 +62,8 @@ public class DoacaoController {
 			doacao.setResponsible(userProfileService.getPrincipal().getUser());
 			
 			Doacao savedDoacao = doacaoService.save(doacao);
-			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("post.saved", null, locale));
-			return "redirect:/post/view/" + savedDoacao.getId() + "?success";
+			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("doacao.saved", null, locale));
+			return "redirect:/doacao/view/" + savedDoacao.getId() + "?success";
 		}
 		model.addAttribute("readonly", false);
 		return "/doacao/form";
