@@ -56,7 +56,7 @@ public class DoacaoController {
 			Locale locale) {
 		if (!bindingResult.hasErrors()) {
 			if(!doacao.isDisponivel())
-				doacao.setDisponivel(true);
+				doacao.setDisponivel(false);
 			
 			doacao.setPostedOn(new Date());
 			doacao.setResponsible(userProfileService.getPrincipal().getUser());
@@ -76,7 +76,7 @@ public class DoacaoController {
 		if (doacao == null) {
 			redirectAttrs.addFlashAttribute("message",
 					MessageFormat.format(messageSource.getMessage("doacao.notFound", null, locale), id));
-			return "redirect:/doacao/list";
+			return "redirect:/";
 		}
 
 		model.addAttribute("doacao", doacaoService.get(id));

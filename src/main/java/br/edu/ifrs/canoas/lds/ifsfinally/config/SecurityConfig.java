@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 			.antMatchers("/test").permitAll()
 			.antMatchers("/").permitAll()
+			.antMatchers("/doacao/view/**").permitAll()
 			.antMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
 			.and().formLogin()
 				.loginPage("/login").permitAll().and().logout().deleteCookies("remember-me")
