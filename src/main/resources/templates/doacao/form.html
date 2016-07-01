@@ -12,8 +12,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 
-<title>Cadastro</title>
-<!--  th:text="#{cadastro.title}" -->
+<title th:text="#{doacao.title}"></title>
 
 <!-- Bootstrap Core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet" />
@@ -54,9 +53,9 @@
 	</header>
 
 
- <div sec:authorize="!isAuthenticated()">
- <h1>wrere</h1>
- </div>
+	<div sec:authorize="!isAuthenticated()">
+		<h1>wrere</h1>
+	</div>
 
 
 	<!-- Main Content -->
@@ -71,13 +70,16 @@
 
 				<form th:object="${doacao}" th:action="@{/doacao/save}"
 					method="post" id="doacaoForm">
+
+					<input type="hidden" th:field="*{id}" />
+
 					<div class="col-xs-12 col-md-8">
 						<div class="form-group"
 							th:classappend="${#fields.hasErrors('title')}? 'has-error'">
-							<label th:text="#{doacao.titulo}"></label><input type="text" class="form-control"
-								id="doacaoTitle" th:field="*{title}" placeholder="Title"
-								th:readonly="${readonly}" required="true" /> <span
-								th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+							<label th:text="#{doacao.titulo}"></label><input type="text"
+								class="form-control" id="doacaoTitle" th:field="*{title}"
+								placeholder="Title" th:readonly="${readonly}" required="true" />
+							<span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
 								th:class="help-block"></span>
 						</div>
 						<br />
@@ -93,8 +95,8 @@
 						<br />
 						<div class="form-group"
 							th:classappend="${#fields.hasErrors('contactEmail')}? 'has-error'">
-							<label for="contactEmail" th:text="#{doacao.contactEmail}"></label> <input
-								type="text" class="form-control" id="contactEmail"
+							<label for="contactEmail" th:text="#{doacao.contactEmail}"></label>
+							<input type="text" class="form-control" id="contactEmail"
 								th:field="*{contactEmail}" placeholder="E-mail"
 								th:readonly="${readonly}" /> <span
 								th:if="${#fields.hasErrors('contactEmail')}"
@@ -113,9 +115,10 @@
 
 						<div class="form-group">
 							<label th:text="#{doacao.status}"></label> <input type="checkbox"
-								 id="doacaoStatus"   th:checked="${true}"  
-								 th:field="*{disponivel}" th:disabled="${readonly}"/>
-						</div> <!-- disabled="true"   th:checked="${false}" th:disabled="${readonly}"  th:readonly="${!readonly}"-->
+								id="doacaoStatus" th:checked="${true}" th:field="*{disponivel}"
+								th:disabled="${readonly}" />
+						</div>
+						<!-- disabled="true"   th:checked="${false}" th:disabled="${readonly}"  th:readonly="${!readonly}"-->
 
 						<button type="submit" class="btn btn-success" th:if="${!readonly}"
 							id="btSubmitForm"
@@ -125,8 +128,11 @@
 						<a sec:authorize="isAuthenticated()"
 							th:href="@{/doacao/edit/}+${id}" class="btn btn-info"
 							th:if="${readonly}" th:text="#{crud.action.edit}"></a> <a
-							th:href="@{/}" class="btn btn-danger" th:if="!${param.success}">
-							<span
+							sec:authorize="hasRole('ROLE_ADMIN')"
+							class="btn btn-primary delete"
+							th:href="@{/doacao/delete/}+${id}"> <span
+							th:text="#{crud.action.delete}"></span></a> <a th:href="@{/}"
+							class="btn btn-danger" th:if="!${param.success}"> <span
 							th:text="${readonly}?#{navigation.back}:#{navigation.cancel}"></span>
 						</a>
 					</div>

@@ -28,8 +28,12 @@ public class DoacaoService {
 		return doacaoRepository.save(doacao);
 	}
 	
-	public Object listIsDisponivel() {
+	public Object listStatusDisponivel() {
 		return doacaoRepository.findByDisponivel(true);
+	}
+
+	public Iterable<Doacao> list() {
+		return doacaoRepository.findAll();
 	}
 
 }

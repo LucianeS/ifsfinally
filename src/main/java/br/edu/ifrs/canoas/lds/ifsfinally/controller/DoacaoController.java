@@ -39,7 +39,8 @@ public class DoacaoController {
 	
 	@RequestMapping("/list")
 	public String list(Model model) {
-		model.addAttribute("doacoes", doacaoService.listIsDisponivel());
+		//model.addAttribute("doacoes", doacaoService.listStatusDisponivel());
+		model.addAttribute("doacoes", doacaoService.list());
 		return "/doacao/list";
 	}
 	
@@ -103,7 +104,7 @@ public class DoacaoController {
 					.format(messageSource.getMessage("doacao.deleted", null, locale), doacao.getTitle()));
 		}
 
-		return "redirect:/doacao/list";
+		return "redirect:/";
 
 	}
 	

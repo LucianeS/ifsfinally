@@ -1,7 +1,5 @@
 package br.edu.ifrs.canoas.lds.ifsfinally.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +20,7 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String home(Model model){
-		model.addAttribute("doacoes", doacaoService.listIsDisponivel());
+		model.addAttribute("doacoes", doacaoService.listStatusDisponivel());
 		return "index";
 	}
 
