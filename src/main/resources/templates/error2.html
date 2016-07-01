@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<title th:text="#{error.header}"></title>
+</head>
+
+<body>
+	<div> <!-- layout:fragment="content" -->
+
+		<div class="side-body">
+			<!-- PAGE HEADER -->
+			<div class="page-title">
+				<span class="title" th:text="#{error.text.title}"></span>
+				<div class="description" th:text="#{error.title.description}"></div>
+			</div>
+
+			<!--  BODY -->
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="card">
+
+						<!-- TITLE -->
+						<div class="card-header">
+							<div class="card-title">
+								<div class="title">
+									<p th:text="#{error.title}" />
+								</div>
+							</div>
+						</div>
+
+						<!-- CONTENT -->
+						<div class="card-body">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<td th:text="#{error.text.key}">Key</td>
+										<td th:text="#{error.text.value}">Value</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td th:text="#{error.text.timestamp}">TimeStamp</td>
+										<td th:text="${timestamp}"></td>
+									</tr>
+									<tr>
+										<td th:text="#{error.text.status}">Status</td>
+										<td th:text="${status}"></td>
+									</tr>
+									<tr>
+										<td th:text="#{error.text.message}">Message</td>
+										<td th:text="${message}"></td>
+									</tr>
+									<tr>
+										<td th:text="#{error.text.error}">Error</td>
+										<td th:text="${error}"></td>
+									</tr>
+									<tr>
+										<td th:text="#{error.text.path}">Path</td>
+										<td th:text="${path}"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

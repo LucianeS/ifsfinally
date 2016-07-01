@@ -3,73 +3,107 @@
 	xmlns:th="http://www.thymleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
+
 <head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
 <title th:text="#{error.header}"></title>
+
+<!-- Bootstrap Core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Custom CSS -->
+<link href="/css/clean-blog.min.css" rel="stylesheet" />
+
+<!-- Custom Fonts -->
+<link
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic'
+	rel='stylesheet' type='text/css' />
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	rel='stylesheet' type='text/css' />
+
 </head>
 
 <body>
-	<div> <!-- layout:fragment="content" -->
+	<!-- Page Header -->
+	<!-- Set your background image for this header on the line below. -->
 
-		<div class="side-body">
-			<!-- PAGE HEADER -->
-			<div class="page-title">
-				<span class="title" th:text="#{error.text.title}"></span>
-				<div class="description" th:text="#{error.title.description}"></div>
-			</div>
+	<p th:text="#{error.title}"></p>
 
-			<!--  BODY -->
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="card">
-
-						<!-- TITLE -->
-						<div class="card-header">
-							<div class="card-title">
-								<div class="title">
-									<p th:text="#{error.title}" />
-								</div>
-							</div>
-						</div>
-
-						<!-- CONTENT -->
-						<div class="card-body">
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<td th:text="#{error.text.key}">Key</td>
-										<td th:text="#{error.text.value}">Value</td>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td th:text="#{error.text.timestamp}">TimeStamp</td>
-										<td th:text="${timestamp}"></td>
-									</tr>
-									<tr>
-										<td th:text="#{error.text.status}">Status</td>
-										<td th:text="${status}"></td>
-									</tr>
-									<tr>
-										<td th:text="#{error.text.message}">Message</td>
-										<td th:text="${message}"></td>
-									</tr>
-									<tr>
-										<td th:text="#{error.text.error}">Error</td>
-										<td th:text="${error}"></td>
-									</tr>
-									<tr>
-										<td th:text="#{error.text.path}">Path</td>
-										<td th:text="${path}"></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-
-					</div>
-				</div>
+	<!-- Main Content -->
+	<div class="container">
+		<div class="row">
+		<hr/>
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<!--  <div th:if="${message}" class="alert alert-success">
+					<p th:text="${message}" />
+				</div>-->
+				
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td th:text="#{error.text.key}">Key</td>
+							<td th:text="#{error.text.value}">Value</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td th:text="#{error.text.timestamp}">TimeStamp</td>
+							<td th:text="${timestamp}"></td>
+						</tr>
+						<tr>
+							<td th:text="#{error.text.status}">Status</td>
+							<td th:text="${status}"></td>
+						</tr>
+						<tr>
+							<td th:text="#{error.text.message}">Message</td>
+							<td th:text="${message}"></td>
+						</tr>
+						<tr>
+							<td th:text="#{error.text.error}">Error</td>
+							<td th:text="${error}"></td>
+						</tr>
+						<tr>
+							<td th:text="#{error.text.path}">Path</td>
+							<td th:text="${path}"></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
+
+	<hr />
+
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+					<p class="copyright text-muted" th:text="#{page.footer}"></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script src="js/clean-blog.min.js"></script>
+
 </body>
 
 </html>
