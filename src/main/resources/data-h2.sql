@@ -12,12 +12,6 @@ INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD) VALUES (8, 'junior@net.com', 'J
 -- ROLES
 insert into roles(id, role) values (1, 'ROLE_USER');
 insert into roles(id, role) values (2, 'ROLE_ADMIN');
-insert into roles(id, role) values (3, 'ROLE_USER');
-insert into roles(id, role) values (4, 'ROLE_USER');
-insert into roles(id, role) values (5, 'ROLE_USER');
-insert into roles(id, role) values (6, 'ROLE_USER');
-insert into roles(id, role) values (7, 'ROLE_USER');
-insert into roles(id, role) values (8, 'ROLE_USER');
 
 -- USER_ROLES
 insert into users_roles (user_id, role_id) values (1, 1);

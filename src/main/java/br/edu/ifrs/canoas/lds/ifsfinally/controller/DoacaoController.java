@@ -92,7 +92,7 @@ public class DoacaoController {
 
 		Doacao doacao = doacaoService.get(id);
 
-		if (doacao == null) {
+		if (doacao == null || doacao.getResponsible().getId() != userProfileService.getPrincipal().getUser().getId()) {
 			redirectAttrs.addFlashAttribute("message",
 					MessageFormat.format(messageSource.getMessage("doacao.deleted.failed", null, locale), null));
 

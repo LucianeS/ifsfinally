@@ -125,7 +125,7 @@
 							onclick="document.getElementById('doacaoForm').submit(); return false;"
 							th:text="#{crud.action.save}"></button>
 
-						<a sec:authorize="isAuthenticated()"
+						<a sec:authorize="!isAuthenticated()"
 							th:href="@{/doacao/edit/}+${id}" class="btn btn-info"
 							th:if="${readonly}" th:text="#{crud.action.edit}"></a> <a
 							sec:authorize="hasRole('ROLE_ADMIN')"

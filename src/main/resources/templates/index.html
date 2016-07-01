@@ -85,7 +85,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview" th:each="doacao:${doacoes}" th:if="${doacao.disponivel}==true"><!-- th:if="${post.isPublic}  th:if="${doacao.disponivel} == true" -->
+				<div th:if="${message}" class="alert alert-success">
+					<p th:text="${message}" />
+				</div>
+				<div class="post-preview" th:each="doacao:${doacoes}" th:if="${doacao.disponivel}==true"><!-- th:if="${post.isPublic}  th:if="${doacao.disponivel} == true" -->
 					<a th:href="@{/doacao/view/}+${doacao.id}">
 						<h2 class="post-title" th:text="|${doacao.title}|"></h2> <label
 						class="post-meta" th:text="#{index.contato}"></label> <span
