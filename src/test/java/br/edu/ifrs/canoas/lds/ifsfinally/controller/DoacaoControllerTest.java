@@ -192,24 +192,46 @@ public class DoacaoControllerTest extends BaseControllerTest{
 		.andExpect(flash().attributeExists("message"))
 		;
 
+
 	}
 	
 	/**
 	 * @author Luciane
 	 * @Date: 02/07/2016
 	 * Descrição: Testa o método update, editando a propriedade 
-	 * title da doção dom id=4
+	 * title da doação com id=4, com o usuário devidamente autenticado
+	 * com perfil de autor da doação, ou seja, com permissão de editar
 	 */
 	@Test
 	@WithUserDetails("marco@123.123")
 	public void testToUpdateDoacao4AndCheckAtts() throws Exception {
 		this.mockMvc.perform(post("/doacao/edit/4"))
-			.andExpect(status().isOk())
-			.andExpect(model().attributeExists("doacao"))
-			.andExpect(model().attribute("doacao", hasProperty("title", is("Mesa com 4 cadeiras"))))
-			.andExpect(model().attribute("readonly",is(false)))
-			.andExpect(forwardedUrl(PRE_URL+"/doacao/form"+POS_URL))
-			;
+		.andExpect(status().isOk())
+		.andExpect(model().attributeExists("doacao"))
+		.andExpect(model().attribute("doacao", hasProperty("title", is("Mesa com 4 cadeiras"))))
+		.andExpect(model().attribute("readonly",is(false)))
+		.andExpect(forwardedUrl(PRE_URL+"/doacao/form"+POS_URL))
+		;
+	}
+	
+	/**
+	 * @author Luciane
+	 * @Date: 02/07/2016
+	 * Descrição: Testa o método update, editando a propriedade 
+	 * title da doação com id=4, com o usuário devidamente autenticado
+	 * com perfil de autor da doação, ou seja, com permissão de editar
+	 */
+	@Test
+	@WithUserDetails("123@123.123")
+	public void testToUpdateDoacao4WithUserLoginIncorreto() throws Exception {
+		
+		assertThat(doacaoService.get(4L), is(notNullValue()));
+		
+		this.mockMvc.perform(post("/doacao/edit/4"))
+		.andExpect(view().name("redirect:/doacao/list"))
+		.andExpect(status().is3xxRedirection())
+		.andExpect(flash().attributeExists("message"))
+		;
 	}
 
 }

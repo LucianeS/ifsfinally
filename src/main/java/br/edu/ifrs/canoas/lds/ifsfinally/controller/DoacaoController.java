@@ -2,6 +2,7 @@ package br.edu.ifrs.canoas.lds.ifsfinally.controller;
 
 import java.text.MessageFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.validation.Valid;
@@ -41,6 +42,7 @@ public class DoacaoController {
 	public String list(Model model) {
 		//model.addAttribute("doacoes", doacaoService.listStatusDisponivel());
 		model.addAttribute("doacoes", doacaoService.list());
+		
 		return "/doacao/list";
 	}
 	
