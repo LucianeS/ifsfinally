@@ -112,13 +112,12 @@
 								id="doacaoStatus" th:checked="${true}" th:field="*{disponivel}"
 								th:disabled="${readonly}" />
 						</div>
-						<!-- disabled="true"   th:checked="${false}" th:disabled="${readonly}"  th:readonly="${!readonly}"-->
 
 						<button type="submit" class="btn btn-success" th:if="${!readonly}"
 							id="btSubmitForm"
 							onclick="document.getElementById('doacaoForm').submit(); return false;"
 							th:text="#{crud.action.save}"></button>
-<!-- sec:authorize="!isAuthenticated()" -->
+
 						<a sec:authorize="hasRole('ROLE_USER')"
 							th:href="@{/doacao/edit/}+${id}" class="btn btn-info"
 							th:if="${readonly}" th:text="#{crud.action.edit}"></a> <a

@@ -110,9 +110,20 @@ public class DoacaoController {
 	
 	@Secured("ROLE_USER")
 	@RequestMapping("/edit/{id}")
-	public String update(@PathVariable Long id, Model model) {
-		model.addAttribute("doacao", doacaoService.get(id));
-		model.addAttribute("readonly", false);
+	public String update(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
+		Doacao doacao = doacaoService.get(id);
+		
+		if(doacao == null || doacao.getResponsible().getId() != userProfileService.getPrincipal().getUser().getId()){
+			redirectAttrs.addFlashAttribute("message",
+					MessageFormat.format(messageSource.getMessage("doacao.update.failed", null, locale), null));
+			return "redirect:/doacao/list";
+			
+		}else{
+			model.addAttribute("doacao", doacaoService.get(id));
+			model.addAttribute("readonly", false);
+			
+		}
+		
 		return "/doacao/form";
 	}
 
