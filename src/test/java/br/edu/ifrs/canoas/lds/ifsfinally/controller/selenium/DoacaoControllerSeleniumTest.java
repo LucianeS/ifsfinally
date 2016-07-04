@@ -38,8 +38,10 @@ public class DoacaoControllerSeleniumTest extends FluentTest {
 
 	/**
 	 * @author Luciane
-	 * @Date: 11/06/2016 Description: Create a new student profile test, view
-	 *        students profile test and edit student profile test.
+	 * @Date: 03/07/2016 
+	 * Description: Testa o cadastramento de uma doação,
+	 * bem como a edição das infromações do cadastro 
+	 * e o sua deleção, sem erros.
 	 */
 	//@Ignore
 	@Test
