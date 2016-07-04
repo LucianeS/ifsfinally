@@ -43,9 +43,8 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a th:href="@{/}">Home</a></li>
-				<li><a th:href="about">About</a></li>
-				<li><a th:href="post">Sample Post</a></li>
-				<li><a th:href="contact">Contact</a></li>
+				<li><a href="#">Cadastrar-se</a></li>
+				<li><a href="#">Contato</a></li>
 			</ul>
 		</div>
 	</header>
@@ -76,7 +75,9 @@
 					<hr />
 					<div class="login-button text-center">
 						<input type="submit" class="btn btn-primary" value="Login"
-							id="btLogin" name="btLogin" />
+							id="btLogin" name="btLogin" /> <a sec:authorize="isAuthenticated()"  th:href="@{/logout}" class="btn btn-danger"
+							th:if="!${param.success}"> <span
+							th:text="#{btn.logout}"></span></a>
 					</div>
 				</form>
 			</div>

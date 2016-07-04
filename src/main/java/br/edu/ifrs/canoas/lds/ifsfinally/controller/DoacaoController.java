@@ -40,7 +40,6 @@ public class DoacaoController {
 	
 	@RequestMapping("/list")
 	public String list(Model model) {
-		//model.addAttribute("doacoes", doacaoService.listStatusDisponivel());
 		model.addAttribute("doacoes", doacaoService.list());
 		
 		return "/doacao/list";
