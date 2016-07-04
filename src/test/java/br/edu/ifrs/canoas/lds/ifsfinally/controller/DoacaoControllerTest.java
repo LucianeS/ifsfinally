@@ -198,6 +198,25 @@ public class DoacaoControllerTest extends BaseControllerTest{
 	/**
 	 * @author Luciane
 	 * @Date: 02/07/2016
+	 * DDescrição: Testa o método delete, com o usuário autenticado
+	 * com perfil diferente do autor da doação, ou seja, sem permissão de deletar
+	 */
+	@Test
+	@WithUserDetails("123@123.123")
+	public void testToDeleteDoacao4WithUserLoginIncorreto() throws Exception {
+		
+		assertThat(doacaoService.get(4L), is(notNullValue()));
+		
+		this.mockMvc.perform(post("/doacao/delete/4"))
+		.andExpect(view().name("redirect:/doacao/list"))
+		.andExpect(status().is3xxRedirection())
+		.andExpect(flash().attributeExists("message"))
+		;
+	}
+	
+	/**
+	 * @author Luciane
+	 * @Date: 02/07/2016
 	 * Descrição: Testa o método update, editando a propriedade 
 	 * title da doação com id=4, com o usuário devidamente autenticado
 	 * com perfil de autor da doação, ou seja, com permissão de editar
@@ -217,9 +236,8 @@ public class DoacaoControllerTest extends BaseControllerTest{
 	/**
 	 * @author Luciane
 	 * @Date: 02/07/2016
-	 * Descrição: Testa o método update, editando a propriedade 
-	 * title da doação com id=4, com o usuário devidamente autenticado
-	 * com perfil de autor da doação, ou seja, com permissão de editar
+	 * Descrição: Testa o método update, com o usuário autenticado
+	 * com perfil diferente do autor da doação, ou seja, sem permissão de editar
 	 */
 	@Test
 	@WithUserDetails("123@123.123")

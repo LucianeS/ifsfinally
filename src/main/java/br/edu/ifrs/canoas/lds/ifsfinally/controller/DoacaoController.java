@@ -92,10 +92,17 @@ public class DoacaoController {
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 
 		Doacao doacao = doacaoService.get(id);
+		
+		if(doacao == null){
+			redirectAttrs.addFlashAttribute("message",
+					MessageFormat.format(messageSource.getMessage("doacao.notFound", null, locale), null));
+			return "redirect:/";
+		}
 
-		if (doacao == null || doacao.getResponsible().getId() != userProfileService.getPrincipal().getUser().getId()) {
+		else if (doacao.getResponsible().getId() != userProfileService.getPrincipal().getUser().getId()) {
 			redirectAttrs.addFlashAttribute("message",
 					MessageFormat.format(messageSource.getMessage("doacao.deleted.failed", null, locale), null));
+			return "redirect:/doacao/list";
 
 		} else {
 			
@@ -114,7 +121,13 @@ public class DoacaoController {
 	public String update(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		Doacao doacao = doacaoService.get(id);
 		
-		if(doacao == null || doacao.getResponsible().getId() != userProfileService.getPrincipal().getUser().getId()){
+		if(doacao == null){
+			redirectAttrs.addFlashAttribute("message",
+					MessageFormat.format(messageSource.getMessage("doacao.notFound", null, locale), null));
+			return "redirect:/";
+		}
+		
+		else if(doacao.getResponsible().getId() != userProfileService.getPrincipal().getUser().getId()){
 			redirectAttrs.addFlashAttribute("message",
 					MessageFormat.format(messageSource.getMessage("doacao.update.failed", null, locale), null));
 			return "redirect:/doacao/list";
