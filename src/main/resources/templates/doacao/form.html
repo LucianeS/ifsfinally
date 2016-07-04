@@ -120,10 +120,10 @@
 
 						<a sec:authorize="hasRole('ROLE_USER')"
 							th:href="@{/doacao/edit/}+${id}" class="btn btn-info"
-							th:if="${readonly}" th:text="#{crud.action.edit}"></a> <a
+							th:if="${readonly}" th:text="#{crud.action.edit}" id="btEdit"></a> <a
 							sec:authorize="hasRole('ROLE_USER')"
 							class="btn btn-primary delete"
-							th:href="@{/doacao/delete/}+${id}"> <span
+							th:href="@{/doacao/delete/}+${id}" id="btDelete"> <span
 							th:text="#{crud.action.delete}"></span></a> <a th:href="@{/}"
 							class="btn btn-danger" th:if="!${param.success}"> <span
 							th:text="${readonly}?#{navigation.back}:#{navigation.cancel}"></span>

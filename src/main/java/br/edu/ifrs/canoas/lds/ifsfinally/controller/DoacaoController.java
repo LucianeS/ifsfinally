@@ -2,7 +2,6 @@ package br.edu.ifrs.canoas.lds.ifsfinally.controller;
 
 import java.text.MessageFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import javax.validation.Valid;
