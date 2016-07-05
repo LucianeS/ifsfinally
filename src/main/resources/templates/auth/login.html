@@ -76,7 +76,7 @@
 					<div class="login-button text-center">
 						<input type="submit" class="btn btn-primary" value="Login"
 							id="btLogin" name="btLogin" /> <a sec:authorize="isAuthenticated()"  th:href="@{/logout}" class="btn btn-danger"
-							th:if="!${param.success}"> <span
+							th:if="!${param.success}" id="btLogout"> <span
 							th:text="#{btn.logout}"></span></a>
 					</div>
 				</form>

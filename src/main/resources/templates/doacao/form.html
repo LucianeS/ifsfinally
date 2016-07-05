@@ -126,7 +126,7 @@
 							th:href="@{/doacao/delete/}+${id}" id="btDelete"> <span
 							th:text="#{crud.action.delete}"></span></a> <a th:href="@{/}"
 							class="btn btn-danger" th:if="!${param.success}"> <span
-							th:text="${readonly}?#{navigation.back}:#{navigation.cancel}"></span>
+							th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" id="voltCancel"></span>
 						</a>
 					</div>
 
