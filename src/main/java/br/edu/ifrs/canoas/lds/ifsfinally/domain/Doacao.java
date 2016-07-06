@@ -49,11 +49,6 @@ public class Doacao {
 	
 	private String location;
 	
-	@Lob
-	private byte[] photo;
-
-	
-	
 	public Long getId() {
 		return id;
 	}
@@ -118,16 +113,4 @@ public class Doacao {
 		this.location = location;
 	}
 
-	public byte[] getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(byte[] photo) {
-		this.photo = photo;
-	}
-
-	public String getPictureBase64() {
-		return "data:image/png;base64," + Base64Utils.encodeToString(photo);
-	}
-	
 }
