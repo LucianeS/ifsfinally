@@ -37,6 +37,12 @@ public class DoacaoController {
 		this.userProfileService= userProfileService;
 	}
 	
+	/**
+	 * Retorna a página com a listagem 
+	 * de doações cadastradas 
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/list")
 	public String list(Model model) {
 		model.addAttribute("doacoes", doacaoService.list());
@@ -44,6 +50,13 @@ public class DoacaoController {
 		return "/doacao/list";
 	}
 	
+	
+	/**
+	 * Retorna o a página do formulário de
+	 * cadastro de doações
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/create")
 	public String create(Model model) {
 		model.addAttribute("doacao", new Doacao());
@@ -51,6 +64,17 @@ public class DoacaoController {
 		return "/doacao/form";
 	}
 	
+	
+	/**
+	 * Grava as informações recebidas,
+	 * via método post pelo formulário.
+	 * @param doacao
+	 * @param bindingResult
+	 * @param model
+	 * @param redirectAttrs
+	 * @param locale
+	 * @return
+	 */
 	@Secured("ROLE_USER")
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Doacao doacao, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
@@ -70,6 +94,17 @@ public class DoacaoController {
 		return "/doacao/form";
 	}
 	
+	
+	/**
+	 * Permite a visualização do cadastro
+	 * de uma doação, referente ao id recebido,
+	 * via URL
+	 * @param id
+	 * @param model
+	 * @param redirectAttrs
+	 * @param locale
+	 * @return
+	 */
 	@RequestMapping("/view/{id}")
 	public String view(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		Doacao doacao = doacaoService.get(id);
@@ -86,6 +121,16 @@ public class DoacaoController {
 		return "/doacao/form";
 	}
 	
+	/**
+	 * Permite que um usuário autenticado
+	 * como a role USER, apague as infromações 
+	 * dos cadastros feitos por ele
+	 * @param id
+	 * @param model
+	 * @param redirectAttrs
+	 * @param locale
+	 * @return
+	 */
 	@Secured("ROLE_USER")
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
@@ -115,6 +160,16 @@ public class DoacaoController {
 
 	}
 	
+	/**
+	 * Permite que um usuário autenticado
+	 * como a role USER, edite as infromações 
+	 * dos cadastros feitos por ele
+	 * @param id
+	 * @param model
+	 * @param redirectAttrs
+	 * @param locale
+	 * @return
+	 */
 	@Secured("ROLE_USER")
 	@RequestMapping("/edit/{id}")
 	public String update(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
