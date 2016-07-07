@@ -1,6 +1,7 @@
 package br.edu.ifrs.canoas.lds.ifsfinally.controller.selenium;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.fluentlenium.core.filter.FilterConstructor.withId;
 import static org.fluentlenium.core.filter.FilterConstructor.withText;
 
 import java.util.concurrent.TimeUnit;
@@ -34,8 +35,6 @@ public class DoacaoControllerSeleniumTest extends FluentTest {
 		fill("#username").with("123@123.123");
 		fill("#password").with("123");
 		submit("#btLogin");		
-		
-		find("p", withText("General User"));
 	}
 
 	/**
@@ -239,9 +238,10 @@ public class DoacaoControllerSeleniumTest extends FluentTest {
 	@Test
 	public void testeLogoutViewENavegaçãoComUsuárioVisitante() {
 		//Logout
-		goTo("http://localhost:8080/login");
-		find("#btLogout").click();
-		assertThat(find(".alert-success").getText()).isEqualTo("You have been logged out.");
+		goTo("http://localhost:8080");
+		find(".navbar-brand", withText("Logout")).click();
+		await().atMost(5, TimeUnit.SECONDS).until(find(".alert-success", withText("You have been logged out.")));
+		//assertThat(find(".alert-success").getText()).isEqualTo("You have been logged out.");
 		
 		findFirst("A", withText("Home")).click();
 		await().atMost(5, TimeUnit.SECONDS).until(find("h1", withText("Brechó Virtual")));

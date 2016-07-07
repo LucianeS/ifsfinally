@@ -40,14 +40,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div>
-                	<a class="navbar-brand" th:href="login">Login</a> <span sec:authorize="isAuthenticated()" sec:authentication="principal.fullName" class="navbar-brand"></span>
-                </div>
-            </div>
+				<div sec:authorize="isAuthenticated()" class="navbar-brand">
+					<h5 th:text="#{login.perfil}"></h5> <h6 sec:authentication="principal.fullName"></h6>
+					<a th:href="@{/logout}" th:if="!${param.success}" id="btLogout"><span
+						th:text="#{btn.logout}" class="navbar-brand"></span></a>
+				</div>			
+				<div sec:authorize="!isAuthenticated()">
+					<a class="navbar-brand" th:href="login">Login</a>
+				</div>
+			</div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+				<ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="/doacao/create">Cadastro</a>
                     </li>
